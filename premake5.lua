@@ -36,6 +36,18 @@ newoption({
         default = "yes"
 })
 
+newoption({
+        trigger = "fanmade-icons",
+        value = "type",
+        description = "Use fanmade icons for speak or not",
+        allowed = {
+		{"yes", "Use fanmade icons"},
+		{"no", "Use original icons"}
+        },
+        category = "DECTalk",
+        default = "yes"
+})
+
 filter("platforms:Win32")
         system("windows")
         architecture("x86")
@@ -102,6 +114,14 @@ if _OPTIONS["build-speak"] == "yes" then
 		characterset("MBCS")
 		includedirs("speak-common")
 		files("speak-common/*.c")
+		filter("options:fanmade-icons=yes")
+			defines({
+				"FANMADE_ICONS"
+			})
+			resdefines({
+				"FANMADE_ICONS"
+			})
+		filter({})
 		filter("system:not windows")
 			files("speak/*.c")
 			includedirs({

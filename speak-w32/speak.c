@@ -124,6 +124,8 @@ void ShowPerson(HDC hdc, const char* name, RECT* rc){
 	hmdc = CreateCompatibleDC(hdc);
 	SelectObject(hmdc, hBitmap);
 
+	SetStretchBltMode(hdc, HALFTONE);
+	SetBrushOrgEx(hdc, 0, 0, NULL);
 	StretchBlt(hdc, rc->left, rc->top, rc->right - rc->left, rc->bottom - rc->top, hmdc, 0, 0, bmp.bmWidth, bmp.bmHeight, SRCCOPY);
 
 	DeleteDC(hmdc);

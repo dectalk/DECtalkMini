@@ -1,5 +1,17 @@
 #include <winver.h>
 
+#ifdef FANMADE_ICONS
+DTC ICON "paul.ico"
+BETTY BITMAP "icons/betty-fanmade.bmp"
+DENNIS BITMAP "icons/den203a.bmp"
+FRANK BITMAP "icons/fra203a.bmp"
+HARRY BITMAP "icons/harry-fanmade.bmp"
+KIT BITMAP "icons/kid203a.bmp"
+PAUL BITMAP "icons/paul-fanmade.bmp"
+RITA BITMAP "icons/rit203a.bmp"
+URSULA BITMAP "icons/urs203a.bmp"
+WENDY BITMAP "icons/wen203a.bmp"
+#else
 DTC ICON "paul.ico"
 BETTY BITMAP "icons/bet203a.bmp"
 DENNIS BITMAP "icons/den203a.bmp"
@@ -10,3 +22,4 @@ PAUL BITMAP "icons/pau203a.bmp"
 RITA BITMAP "icons/rit203a.bmp"
 URSULA BITMAP "icons/urs203a.bmp"
 WENDY BITMAP "icons/wen203a.bmp"
+#endif

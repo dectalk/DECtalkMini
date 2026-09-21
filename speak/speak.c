@@ -29,6 +29,12 @@
 #include "icons/rit203a.xpm"
 #include "icons/wen203a.xpm"
 
+#ifdef FANMADE_ICONS
+#include "icons/paul-fanmade.xpm"
+#include "icons/betty-fanmade.xpm"
+#include "icons/harry-fanmade.xpm"
+#endif
+
 #include <stdio.h>
 #include <string.h>
 
@@ -331,9 +337,27 @@ int main(int argc, char** argv){
 		XmNheight, 74,
 	NULL);
 
-	load(&w_paul, &p_paul, &m_paul, pau203a);
-	load(&w_betty, &p_betty, &m_betty, bet203a);
-	load(&w_harry, &p_harry, &m_harry, har203a);
+	load(&w_paul, &p_paul, &m_paul,
+#ifdef FANMADE_ICONS
+		paul_fanmade
+#else
+		pau203a
+#endif
+	);
+	load(&w_betty, &p_betty, &m_betty,
+#ifdef FANMADE_ICONS
+		betty_fanmade
+#else
+		bet203a
+#endif
+	);
+	load(&w_harry, &p_harry, &m_harry,
+#ifdef FANMADE_ICONS
+		harry_fanmade
+#else
+		har203a
+#endif
+	);
 	load(&w_frank, &p_frank, &m_frank, fra203a);
 	load(&w_dennis, &p_dennis, &m_dennis, den203a);
 	load(&w_kit, &p_kit, &m_kit, kid203a);
