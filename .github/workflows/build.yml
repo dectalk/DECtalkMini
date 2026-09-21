@@ -157,7 +157,7 @@ jobs:
         distribution: temurin
         java-version: "17"
     - name: Set up Android SDK
-      uses: android-actions/setup-android@v3
+      run: sdkmanager --install "platform-tools" "platforms;android-35" "build-tools;35.0.0" "cmake;3.22.1"
     - name: Build
       working-directory: platforms/android
       run: ./gradlew assemble
