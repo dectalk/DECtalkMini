@@ -72,7 +72,7 @@
  **********************************************************************/
 #include "dectalkf.h"
 
-#if !defined(__APPLE__) && !defined(__OpenBSD__)
+#if !defined(__APPLE__) && !defined(__OpenBSD__) && !defined(__NetBSD__) && !defined(__DragonFly__)
 #include <malloc.h>
 #endif
 #include "mmalloc.h"
