@@ -352,6 +352,9 @@ int TextToSpeechStartEx(void* tts, char* input, short* buffer_deprecated, int ou
 		}
 		i++;
 	}
+
+	free(input);
+
 	// cmd_loop(phTTS,0x0B); // force it
 	if(phTTS->pKernelShareData->halting) {
 		cmd_loop(phTTS, 0x0B); // force it when halting
