@@ -19,8 +19,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
-    - name: Disable initramfs update
-      run: sudo sed -i 's/yes/no/g' /etc/initramfs-tools/update-initramfs.conf
     - name: Disable man-db update
       run: sudo rm -f /var/lib/man-db/auto-update
     - name: Install packages
@@ -72,8 +70,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
-    - name: Disable initramfs update
-      run: sudo sed -i 's/yes/no/g' /etc/initramfs-tools/update-initramfs.conf
     - name: Disable man-db update
       run: sudo rm -f /var/lib/man-db/auto-update
     - name: Install packages
@@ -125,8 +121,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
-    - name: Disable initramfs update
-      run: sudo sed -i 's/yes/no/g' /etc/initramfs-tools/update-initramfs.conf
     - name: Disable man-db update
       run: sudo rm -f /var/lib/man-db/auto-update
     - name: Install packages
