@@ -289,6 +289,7 @@ int TextToSpeechStartEx(void* tts, char* input, short* buffer_deprecated, int ou
 #endif
 
 	/* wow this is a terrible fix! (nishi) */
+#ifdef NO_FILESYSTEM
 	{
 		char* old = input;
 		int   n	  = 0;
@@ -298,13 +299,11 @@ int TextToSpeechStartEx(void* tts, char* input, short* buffer_deprecated, int ou
 
 		for(i = 0; old[i] != 0; i++) {
 			unsigned char c = old[i];
-			if(0x80 <= c && c <= 0x82) continue;
+			if(0x80 <= c && c <= 0xff) continue;
 			input[n++] = old[i];
 		}
-#ifndef NO_FILESYSTEM
-		free(old);
-#endif
 	}
+#endif
 
 	if(phTTS->pKernelShareData->halting) {
 		oldrate	   = phTTS->pKernelShareData->uiSampleRate;
