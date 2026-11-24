@@ -1128,7 +1128,7 @@ int ls_dict_user_dict_look(LPTTS_HANDLE_T phTTS, long uindex, short abbr, short 
 #endif
 			return (LOOK_LOWER);
 		}
-		if(IS_LOWER(ent[i]) && (pLts_t->comp_str[i] == ls_upper[(int)ent[i]]))
+		if(IS_LOWER((unsigned char)ent[i]) && (pLts_t->comp_str[i] == ls_upper[(unsigned char)ent[i]]))
 			continue;
 #ifdef DICDEBUG
 		printf("leaving ls_dict_user_dict_look  where to look\n");
@@ -1197,7 +1197,10 @@ int ls_dict_where_to_ulook(PLTS_T pLts_t, char far* ent) {
 	printf("in ls_dict_where_to_ulook\n");
 #endif
 	for(i = 0; pLts_t->comp_str[i]; i++) {
-		pivot_char = ls_upper[(int)ent[i]];
+		unsigned char ent_char = (unsigned char)ent[i];
+		if(ent_char == '\0')
+			return (LOOK_HIGHER);
+		pivot_char = ls_upper[ent_char];
 		if(ls_upper[pLts_t->comp_str[i]] != pivot_char)
 			break;
 	}
